@@ -1,0 +1,15 @@
+<%= simple_form_for task, html: { class: "task form flex flex-col lg:flex-row items-start lg:items-center" } do |f| %>
+  <% if task.errors.any? %>
+    <div class="error-message bg-red-100 text-red-700 px-4 py-2 rounded">
+      <%= task.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <div class="mt-4 flex-grow">
+    <%= f.input :task, input_html: { class: "border rounded-md p-2 focus:outline-none focus:border-blue-500 w-full", autofocus: true }, label: false, placeholder: "Enter your task here" %>
+  </div>
+
+  <div class="mt-4 lg:ml-4">
+    <%= f.submit class: "btn btn--secondary px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600" %>
+  </div>
+<% end %>
